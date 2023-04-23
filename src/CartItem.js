@@ -9,7 +9,23 @@ class CartItem extends React.Component {
       Qty: 1,
       img: "",
     };
+    // this.increaseQuantity = this.increaseQuantity.bind(this);
   }
+  increaseQuantity = () => {
+    // this.state.Qty += 1;
+    // console.log("this", this.state);
+    // setState form 1
+    // this.setState({
+    //   Qty: this.state.Qty + 1,
+    // });
+
+    // setState form 2
+    this.setState((prevState) => {
+      return {
+        Qty: prevState.Qty + 1,
+      };
+    });
+  };
 
   render() {
     const { title, price, Qty } = this.state;
@@ -28,6 +44,7 @@ class CartItem extends React.Component {
               src="https://img.icons8.com/ios/1x/plus.png"
               alt="increase"
               className="action-icons"
+              onClick={this.increaseQuantity}
             />
             <img
               src="https://img.icons8.com/ios/1x/minus.png"
