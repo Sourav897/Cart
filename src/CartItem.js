@@ -29,40 +29,42 @@ class CartItem extends React.Component {
   //     });
   //   }
 
-  increaseQuantity = () => {
-    // this.state.Qty += 1;
-    // console.log("this", this.state);
-    // setState form 1
-    // this.setState({
-    //   Qty: this.state.Qty + 1,
-    // });
+  // increaseQuantity = () => {
+  //   // this.state.Qty += 1;
+  //   // console.log("this", this.state);
+  //   // setState form 1
+  //   // this.setState({
+  //   //   Qty: this.state.Qty + 1,
+  //   // });
 
-    // setState form 2 --- if previous state required used this
-    this.setState((prevState) => {
-      return {
-        Qty: prevState.Qty + 1,
-      };
-    });
-  };
+  //   // setState form 2 --- if previous state required used this
+  //   this.setState((prevState) => {
+  //     return {
+  //       Qty: prevState.Qty + 1,
+  //     };
+  //   });
+  // };
 
-  decreaseQuantity = () => {
-    const { Qty } = this.state;
+  // decreaseQuantity = () => {
+  //   const { Qty } = this.state;
 
-    if (Qty === 0) {
-      return;
-    }
+  //   if (Qty === 0) {
+  //     return;
+  //   }
 
-    // setState form 2 --- if previous state required used this
-    this.setState((prevState) => {
-      return {
-        Qty: prevState.Qty - 1,
-      };
-    });
-  };
+  //   // setState form 2 --- if previous state required used this
+  //   this.setState((prevState) => {
+  //     return {
+  //       Qty: prevState.Qty - 1,
+  //     };
+  //   });
+  // };
 
   render() {
     console.log("this.props", this.props);
     const { title, price, Qty } = this.props.product;
+    const { product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct } =
+      this.props;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -78,19 +80,22 @@ class CartItem extends React.Component {
               src="https://img.icons8.com/ios/1x/plus.png"
               alt="increase"
               className="action-icons"
-              onClick={this.increaseQuantity}
+              // onClick={this.increaseQuantity}
+              onClick={() => onIncreaseQuantity(product)}
             />
             <img
               src="https://img.icons8.com/ios/1x/minus.png"
               alt="decrease"
               className="action-icons"
-              onClick={this.decreaseQuantity}
+              // onClick={this.decreaseQuantity}
+              onClick={() => onDecreaseQuantity(product)}
             />
 
             <img
               src="https://img.icons8.com/carbon-copy/1x/filled-trash.png"
               alt="delete"
               className="action-icons"
+              onClick={() => onDeleteProduct(product.id)}
             />
           </div>
         </div>
