@@ -10,24 +10,24 @@ class CartItem extends React.Component {
       img: "",
     };
     // this.increaseQuantity = this.increaseQuantity.bind(this);
-    this.testing();
+    // this.testing();
   }
 
-  testing() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve("done");
-      }, 5000);
-    });
+  //   testing() {
+  //     const promise = new Promise((resolve, reject) => {
+  //       setTimeout(() => {
+  //         resolve("done");
+  //       }, 5000);
+  //     });
 
-    promise.then(() => {
-      this.setState({ Qty: this.state.Qty + 10 });
-      this.setState({ Qty: this.state.Qty + 10 });
-      this.setState({ Qty: this.state.Qty + 10 });
+  //     promise.then(() => {
+  //       this.setState({ Qty: this.state.Qty + 10 });
+  //       this.setState({ Qty: this.state.Qty + 10 });
+  //       this.setState({ Qty: this.state.Qty + 10 });
 
-      console.log("state", this.state);
-    });
-  }
+  //       console.log("state", this.state);
+  //     });
+  //   }
 
   increaseQuantity = () => {
     // this.state.Qty += 1;
